@@ -1,12 +1,12 @@
 const {test,expect} = require('@playwright/test')
-const LoginPage = require("../Pages/loginpage")
+const LoginPage = require("../pages/loginpage")
 
 test("Verifying successful login", async function({page}){
   //Navigate to URL
     await page.goto("https://www.saucedemo.com/");
     const loginpage = new LoginPage(page)
     await loginpage.successfulLogin();
-    await loginpage.checkInformation();
+   // await loginpage.checkInformation();
     await page.waitForTimeout(3000);
 
 })

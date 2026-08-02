@@ -1,19 +1,34 @@
+const {expect} = require("@playwright/test")
+
 class Cartpage{
 
   constructor(page){
   this.page=page;
-  this.checkoutButton="#checkout"
-  this.continueShoppingButton="#continue-shopping"
+  this.checkoutButton="#checkout";
+  this.continueShoppingButton="#continue-shopping";
+  this.qty=".cart_quantity";
+  this.removeButton="#remove-sauce-labs-backpack"
   }
 
   async proceedToCheckout(){
   await this.page.click(this.checkoutButton);
+  await expect(this.page).toHaveURL("https://www.saucedemo.com/checkout-step-one.html")
   }
 
   async continueShopping(){
     await this.page.click(this.continueShoppingButton);
 
   }
+
+  async checkQty(){
+    await expect(this.page.locator(this.qty).toBe(1));
+  }
+  
+  async remove(){
+    await this.page.click(this.removeButton)
+
+  }
+  
 }
 
 module.exports = Cartpage;

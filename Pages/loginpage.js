@@ -14,6 +14,7 @@ class LoginPage{
     await this.page.fill(this.username,'standard_user');
     await this.page.fill(this.password,'secret_sauce');
     await this.page.click(this.button);
+    await expect(this.page).toHaveURL("https://www.saucedemo.com/inventory.html")
   }
 
   async unsuccessfulLogin(){
