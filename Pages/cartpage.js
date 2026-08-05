@@ -19,12 +19,8 @@ class Cartpage{
     await this.page.click(this.continueShoppingButton);
 
   }
-
-  async checkQty(){
-    await expect(this.page.locator(this.qty).toBe(1));
-  }
   
-  async remove(){
+  async removeItem(){
     await this.page.click(this.removeButton)
 
   }

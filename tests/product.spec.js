@@ -1,32 +1,24 @@
-const {test,expect} = require("@playwright/test")
-const LoginPage = require("../Pages/loginpage")
-const ProductPage = require("../Pages/productpage")
+const { test, expect } = require("../fixtures/product.fixture.js");
 
-test("Add to cart", async function({page}){
-await page.goto("https://www.saucedemo.com/");
-const loginPage = new LoginPage(page);
-await loginPage.successfulLogin();  
-const productPage = new ProductPage(page);
-await productPage.addedToCart();
-await productPage.proceedTocart();
+test("Add item to cart", async function({loginPage, productPage}){
+  await loginPage.successfulLogin()
+  await productPage.addToCart();
+  await productPage.proceedToCart();
+
 
 }
 )
 
-test("Remove from cart", async function({page}){
-await page.goto("https://www.saucedemo.com/");
-const loginPage = new LoginPage(page);
-await productPage.removeFromCart();
-  
+test("Remove item from cart", async function({loginPage, productPage}){
+  await loginPage.successfulLogin()
+  await productPage.addToCart();
+  await productPage.removeFromCart();
 }
 
 
 )
 
-test("Filtering options", async function({page}){
-await page.goto("https://www.saucedemo.com/");
-const loginPage = new LoginPage(page);
-await loginPage.successfulLogin();  
-const productPage = new ProductPage(page);
-await productPage.filterOption();
+test("Filter an option", async function({loginPage, productPage}){
+  await loginPage.successfulLogin()
+  await productPage.filterOption();
 })

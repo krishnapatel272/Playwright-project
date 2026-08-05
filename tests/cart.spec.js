@@ -1,38 +1,24 @@
-const{test,expect} = require('@playwright/test');
-const LoginPage = require("../Pages/loginpage")
-const ProductPage = require("../Pages/productpage")
-const Cartpage = require('../Pages/cartpage')
+const { test, expect } = require("../fixtures/cart.fixture.js");
 
-test("Proceed to checkout", async function({page}){
-  await page.goto("https://www.saucedemo.com/")
-  const loginPage = new LoginPage(page);
-  await loginPage.successfulLogin();
-  const productPage = new ProductPage(page);
-  await productPage.addedToCart();
-  await productPage.proceedTocart();
-  const cartPage = new Cartpage(page);
-  //await cartPage.checkQty();
+
+test("Proceed to checkout", async function({ loginPage, productPage, cartPage}){
+  await loginPage.successfulLogin()
+  await productPage.addToCart();
+  await productPage.proceedToCart();
   await cartPage.proceedToCheckout();
+
 })
 
-test("Click Continue Shopping", async function({page}){
-  await page.goto("https://www.saucedemo.com/")
-  const loginPage = new LoginPage(page);
-  await loginPage.successfulLogin();
-  const productPage = new ProductPage(page);
-  await productPage.addedToCart();
-  const cartPage = new Cartpage(page);
-  await cartPage.proceedToCheckout();
+test("Click Continue Shopping", async function({ loginPage, productPage, cartPage}){
+  await loginPage.successfulLogin()
+  await productPage.addToCart();
+  await productPage.proceedToCart();
   await cartPage.continueShopping();
 })
 
-test("Remove item from cart", async function({page}){
-  await page.goto("https://www.saucedemo.com/")
-  const loginPage = new LoginPage(page);
-  await loginPage.successfulLogin();
-  const productPage = new ProductPage(page);
-  await productPage.addedToCart();
-  const cartPage = new Cartpage(page);
-  await cartPage.proceedToCheckout();
-  await cartPage.removeButton();
+test("Remove item from cart", async function({ loginPage, productPage, cartPage}){
+  await loginPage.successfulLogin()
+  await productPage.addToCart();
+  await productPage.proceedToCart();
+  await cartPage.removeItem();
 })

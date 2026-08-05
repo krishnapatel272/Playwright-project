@@ -1,20 +1,20 @@
-const {test,expect} = require("@playwright/test")
-const LoginPage = require("../pages/loginpage")
-const ProductPage = require("../pages/productpage")
-const Cart = require("../pages/cartpage")
-const Checkout = require("../pages/checkoutpage")
+const { test, expect } = require("../fixtures/checkout.fixture.js");
 
-test("Checkout with valid details", async ({page})=>{
-  await page.goto("https://www.saucedemo.com/")
-  const loginPage = new LoginPage(page);
-  await loginPage.successfulLogin();
-  const productPage = new ProductPage(page);
-  await productPage.addedToCart();
-  await productPage.proceedTocart();
-  const cartPage = new Cart(page);
+test("Checkout with valid details", async ({ loginPage, productPage, cartPage, checkoutPage})=>{
+  await loginPage.successfulLogin()
+  await productPage.addToCart();
+  await productPage.proceedToCart();
   await cartPage.proceedToCheckout();
-  const checkout = new Checkout(page);
-  await checkout.checkTitle();
-  checkout.validDetails();
+  await checkoutPage.checkTitle();
+  await checkoutPage.validDetails();
+})
+
+test("Checkout with blank details", async ({ loginPage, productPage, cartPage, checkoutPage }) => {
+  await loginPage.successfulLogin()
+  await productPage.addToCart();
+  await productPage.proceedToCart();
+  await cartPage.proceedToCheckout();
+  await checkoutPage.checkTitle();
+  await checkoutPage.blankDetails();
 
 })

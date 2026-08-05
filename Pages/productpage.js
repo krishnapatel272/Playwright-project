@@ -10,17 +10,17 @@ class Productpage{
     this.filter=".product_sort_container";
   }
 
- async addedToCart(){
+ async addToCart(){
   await this.page.click(this.addButton);
-  //await expect(this.page.locator(this.removeButton).toBeVisible());
+  await expect(this.page.locator(this.removeButton)).toBeVisible();
  }
 
  async removeFromCart(){
-  await this.page.click(this.removeFromCart);
- // await expect(this.page.locator(this.addButton).toBeVisible());
+  await this.page.click(this.removeButton);
+  await expect(this.page.locator(this.addButton)).toBeVisible();
  }
 
- async proceedTocart(){
+ async proceedToCart(){
   await this.page.click(this.cartBadge);
 
  }
