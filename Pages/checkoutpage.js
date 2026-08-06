@@ -1,5 +1,6 @@
 const {expect} = require("@playwright/test");
 
+
 class Checkout{
 
 constructor(page){
