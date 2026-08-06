@@ -17,7 +17,14 @@ class LoginPage{
     await expect(this.page).toHaveURL("https://www.saucedemo.com/inventory.html")
   }
 
-  async unsuccessfulLogin(){
+ async unsuccesfulLogin(){
+    await this.page.goto("https://www.saucedemo.com/");
+    await this.page.fill(this.username,'standard_user');
+    await this.page.fill(this.password,'test');
+    await this.page.click(this.button);
+  }
+
+  async lockedAccount(){
     await this.page.goto("https://www.saucedemo.com/");
     await this.page.fill(this.username,'locked_out_user');
     await this.page.fill(this.password,'secret_sauce');
