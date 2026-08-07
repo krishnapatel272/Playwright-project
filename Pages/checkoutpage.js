@@ -10,16 +10,21 @@ this.lastname = "#last-name";
 this.postcode = "#postal-code";
 this.continue = "#continue";
 this.title="Checkout: Your Information";
-this.errorButton ='.error-button'
+this.errorButton =".error-button";
+this.finishButton ="#finish";
+this.checkoutComplete = "#checkout_complete_container";
 
 
 }
 
-async validDetails(){
+async successfulCheckout(){
   await this.page.fill(this.firstname,'test');
   await this.page.fill(this.lastname,'test');
   await this.page.fill(this.postcode,'test');
   await this.page.click(this.continue);
+  await this.page.click(this.finishButton);
+  await expect(this.page.locator(this.checkoutComplete)).toBeVisible();
+  
 }
 
 async blankDetails(){

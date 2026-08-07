@@ -26,7 +26,9 @@ class Productpage{
  }
 
  async filterOption(){
-  await this.page.click(this.filter);
+  const filter =await this.page.locator(this.filter);
+  await filter.click();
+  await filter.selectOption({label:"Price (low to high)"});
    }
  }
  
