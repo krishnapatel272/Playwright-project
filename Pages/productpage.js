@@ -13,6 +13,7 @@ class Productpage{
  async addToCart(){
   await this.page.click(this.addButton);
   await expect(this.page.locator(this.removeButton)).toBeVisible();
+  await expect(this.page.locator(this.cartBadge)).toHaveText("1");
  }
 
  async removeFromCart(){
