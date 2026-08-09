@@ -7,17 +7,19 @@ The technologies used:
 <li>Node.js</li>
 <li>Git</li>
 
+<br>
 
 Test scenarios:
 <li>valid login </li>
 <li>invalid login</li>
-<li>locked out user<li>
+<li>locked out user</li>
 <li>slow login</li>
 <li>add item to cart</li>
 <li>filter an option</li>
 <li>remove item from cart</li>
 <li>successful checkout</li>
 
+<br>
 
 Project structure:
 <li>fixtures/</li>
