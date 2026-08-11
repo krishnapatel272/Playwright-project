@@ -1,4 +1,4 @@
-This Playwright automation project demonstrates UI test automation skills using JavaScript. The project covers e-commerce user journeys. The project is built using the Page Object Model (POM) design pattern, with fixtures organised separately to improve scalability and maintainability. It was created as part of my personal learning portfolio.
+This Playwright automation project demonstrates UI test automation skills using JavaScript. The project covers e-commerce user journeys. The project is built using the Page Object Model (POM) design pattern, with fixtures organised separately to improve scalability and maintainability. It was created as part of my personal learning portfolio. I used GitHub Copilot to troubleshoot code and analyse failures.
 
 
 The technologies used:
