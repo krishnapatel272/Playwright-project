@@ -36,7 +36,7 @@ async blankDetails(){
 }
 
 async checkTitle(){
-  await expect(this.page.locator(this.title === "Checkout: Your Information"))
+  await expect(this.page.locator(this.title === "Checkout: Your Information")).toBeTruthy();
 }
 
 }
