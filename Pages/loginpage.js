@@ -8,6 +8,7 @@ class LoginPage{
     this.username = "#user-name";
     this.password = "#password";
     this.button= "#login-button";
+    this.errorMessage = ".error-message-container.error"
   }
 
   async successfulLogin(username,password){
@@ -23,6 +24,7 @@ class LoginPage{
     await this.page.fill(this.username,username);
     await this.page.fill(this.password,password);
     await this.page.click(this.button);
+    await expect(this.page.locator(this.errorMessage)).toBeVisible();
   }
 
   async lockedAccount(username,password){
