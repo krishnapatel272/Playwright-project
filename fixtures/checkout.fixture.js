@@ -19,3 +19,4 @@ exports.test = base.test.extend({
 
   },
 });
+exports.expect = base.expect;
