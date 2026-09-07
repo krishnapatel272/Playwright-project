@@ -24,7 +24,9 @@ class LoginPage{
     await this.page.fill(this.username,username);
     await this.page.fill(this.password,password);
     await this.page.click(this.button);
-    await expect(this.page.locator(this.errorMessage)).toBeVisible();
+    await expect(this.page.locator(this.errorMessage)).toHaveText(
+      "Epic sadface: Username and password do not match any user in this service"
+    );
   }
 
   async lockedAccount(username,password){
@@ -32,6 +34,9 @@ class LoginPage{
     await this.page.fill(this.username,username);
     await this.page.fill(this.password,password);
     await this.page.click(this.button);
+    await expect(this.page.locator(this.errorMessage)).toHaveText(
+      "Epic sadface: Sorry, this user has been locked out."
+    );
   }
 
   async slowLogin(username,password){

@@ -1,4 +1,4 @@
-const { test, expect } = require("../fixtures/checkout.fixture.js");
+const { test, expect } = require("../fixtures/pages.fixture.js");
 const testData = require("../testdata.json");
 
 test("Verify successful checkout", async ({ loginPage, productPage, cartPage, checkoutPage})=>{

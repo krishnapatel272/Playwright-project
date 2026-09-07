@@ -1,4 +1,4 @@
-const { test, expect } = require("../fixtures/login.fixture");
+const { test, expect } = require("../fixtures/pages.fixture");
 const testData = require("../testdata.json");
 
 test("Verify successful login", async function({loginPage}){

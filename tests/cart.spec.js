@@ -1,4 +1,4 @@
-const { test, expect } = require("../fixtures/cart.fixture.js");
+const { test, expect } = require("../fixtures/pages.fixture.js");
 const testData = require("../testdata.json");
 
 
