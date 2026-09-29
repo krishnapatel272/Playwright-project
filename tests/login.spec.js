@@ -18,3 +18,4 @@ test('Verify locked out account', async function({loginPage}){
 test('Verify login performance', async function({loginPage}){
     await loginPage.slowLogin(testData[3].username,testData[3].password);
 })
+
