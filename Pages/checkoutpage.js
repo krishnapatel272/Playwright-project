@@ -9,7 +9,7 @@ class Checkout {
     this.lastname = "#last-name";
     this.postcode = "#postal-code";
     this.continue = "#continue";
-    this.title = ".title";
+    this.heading = ".title";
     this.errorButton = ".error-button";
     this.finishButton = "#finish";
     this.checkoutComplete = "#checkout_complete_container";
@@ -32,8 +32,8 @@ class Checkout {
     await expect(this.page.locator(this.errorButton)).toBeVisible();
   }
 
-  async checkTitle() {
-    await expect(this.page.locator(this.title)).toHaveText("Checkout: Your Information");
+  async checkHeading() {
+    await expect(this.page.locator(this.heading)).toHaveText("Checkout: Your Information");
   }
 
 }
